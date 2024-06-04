@@ -1,6 +1,29 @@
+body{
+  background-color: blanchedalmond;
+  font-family: "Anton", Arial;
+}
+
 #container{
   height: 700px;
   width: 700px;
+}
+
+.input-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.size-button{
+  background-color: blanchedalmond;
+  border: solid 2px black;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Anton";
+  font-size: 20px;
 }
 
 .content{
@@ -15,5 +38,6 @@
 
 .div-columns{
   border: 1px solid black;
-  background-color: rgb(0, 230, 230); 
+  background-color: white;
+  box-sizing: border-box;
 }
