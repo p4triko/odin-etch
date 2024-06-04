@@ -3,6 +3,12 @@
   width: 700px;
 }
 
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .div-rows{
   display: flex;
 }
