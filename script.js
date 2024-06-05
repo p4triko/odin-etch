@@ -1,20 +1,36 @@
 const gridBox = document.getElementById("container");
 const gridDimensions = 700; // Grid height and width, square, from css
+const defaultGrid = 16;
 
-const resetButton = document.querySelector(".size-button");
+const resetButton = document.querySelector(".reset-button");
 
-// resetButton.addEventListener("click", () => {
-//   // createGrid();
-// });
+resetButton.addEventListener("click", () => {
+  let desiredSize = Number(
+    prompt("Enter your desired dimensions for the new grid(1-100)")
+  );
 
-createGrid(16);
+  console.log(desiredSize);
 
-function createGrid(num) {
-  for (let i = 0; i < num; i++) {
+  const wrapper = document.querySelector(".wrapper");
+  if (!wrapper) {
+    createGrid(desiredSize);
+  } else {
+    wrapper.remove();
+    createGrid(desiredSize);
+  }
+});
+
+createGrid(defaultGrid);
+
+function createGrid(numOfGrids) {
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
+
+  for (let i = 0; i < numOfGrids; i++) {
     const divRows = document.createElement("divRows");
     divRows.classList.add("div-rows");
-    for (let j = 0; j < num; j++) {
-      const Dimensions = gridDimensions / num;
+    for (let j = 0; j < numOfGrids; j++) {
+      const Dimensions = gridDimensions / numOfGrids;
       const divColumns = document.createElement("divColumns");
 
       divColumns.classList.add("div-columns");
@@ -27,19 +43,7 @@ function createGrid(num) {
         divColumns.style.backgroundColor = "#000000";
       });
     }
-    gridBox.appendChild(divRows);
+    wrapper.appendChild(divRows);
   }
+  gridBox.appendChild(wrapper);
 }
-
-// const gridSize = prompt("Enter a number between 1 and 100 for your grid size");
-
-// function resetGrid() {
-//   const gridSize = prompt(
-//     "Enter a number between 1 and 100 for your grid size"
-//   );
-//   if (gridSize < 1 && gridSize > 100) {
-//     resetGrid();
-//   } else {
-//     return gridSize;
-//   }
-// }
