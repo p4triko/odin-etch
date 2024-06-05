@@ -9,14 +9,16 @@ resetButton.addEventListener("click", () => {
     prompt("Enter your desired dimensions for the new grid(1-100)")
   );
 
-  console.log(desiredSize);
-
-  const wrapper = document.querySelector(".wrapper");
-  if (!wrapper) {
-    createGrid(desiredSize);
+  if (desiredSize < 1 || desiredSize > 100) {
+    alert("Please enter valid grid size");
   } else {
-    wrapper.remove();
-    createGrid(desiredSize);
+    const wrapper = document.querySelector(".wrapper");
+    if (!wrapper) {
+      createGrid(desiredSize);
+    } else {
+      wrapper.remove();
+      createGrid(desiredSize);
+    }
   }
 });
 
