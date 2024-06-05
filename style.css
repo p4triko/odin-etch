@@ -1,6 +1,5 @@
 body{
   background-color: blanchedalmond;
-  font-family: "Anton", Arial;
 }
 
 #container{
@@ -24,6 +23,10 @@ body{
   cursor: pointer;
   font-family: "Anton";
   font-size: 20px;
+}
+
+.size-button:hover{
+  background-color: rgb(212, 197, 171);
 }
 
 .content{
