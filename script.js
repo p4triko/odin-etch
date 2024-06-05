@@ -42,10 +42,21 @@ function createGrid(numOfGrids) {
       divRows.append(divColumns);
 
       divColumns.addEventListener("mouseenter", () => {
-        divColumns.style.backgroundColor = "#000000";
+        divColumns.style.backgroundColor = randomizeColor();
       });
     }
     wrapper.appendChild(divRows);
   }
   gridBox.appendChild(wrapper);
 }
+
+function randomizeColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+console.log(randomizeColor());
